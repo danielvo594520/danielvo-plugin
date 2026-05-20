@@ -42,6 +42,16 @@ def validate_plugin(plugin_path: Path) -> None:
     require(manifest_path.exists(), f"missing {manifest_path.relative_to(ROOT)}")
     manifest = load_json(manifest_path)
     require(manifest.get("name") == plugin_path.name, f"{plugin_path.name}: manifest name must match folder name")
+
+    claude_manifest_path = plugin_path / ".claude-plugin" / "plugin.json"
+    require(claude_manifest_path.exists(), f"missing {claude_manifest_path.relative_to(ROOT)}")
+    claude_manifest = load_json(claude_manifest_path)
+    require(
+        claude_manifest.get("name") == plugin_path.name,
+        f"{plugin_path.name}: Claude manifest name must match folder name",
+    )
+    require(claude_manifest.get("description"), f"{plugin_path.name}: Claude manifest description is required")
+
     skills_dir = plugin_path / manifest.get("skills", "./skills/")
     require(skills_dir.exists(), f"{plugin_path.name}: skills directory is missing")
 
@@ -52,6 +62,17 @@ def validate_plugin(plugin_path: Path) -> None:
         require(text.startswith("---"), f"{skill_file.relative_to(ROOT)}: missing front matter")
         require("name:" in text.split("---", 2)[1], f"{skill_file.relative_to(ROOT)}: missing name")
         require("description:" in text.split("---", 2)[1], f"{skill_file.relative_to(ROOT)}: missing description")
+
+    agents_dir = plugin_path / "agents"
+    if agents_dir.exists():
+        agent_files = sorted(agents_dir.glob("*.md"))
+        require(agent_files, f"{plugin_path.name}: agents directory exists but has no agents")
+        for agent_file in agent_files:
+            text = agent_file.read_text(encoding="utf-8")
+            require(text.startswith("---"), f"{agent_file.relative_to(ROOT)}: missing front matter")
+            front_matter = text.split("---", 2)[1]
+            require("name:" in front_matter, f"{agent_file.relative_to(ROOT)}: missing name")
+            require("description:" in front_matter, f"{agent_file.relative_to(ROOT)}: missing description")
 
 
 def main() -> None:

@@ -1,0 +1,10 @@
+{
+  "name": "danielvo-dev",
+  "description": "Personal Claude Code plugin for development workflows, plugin maintenance, and review subagents.",
+  "version": "0.1.0",
+  "author": {
+    "name": "T_Miyazawa"
+  },
+  "repository": "https://github.com/danielvo594520/danielvo-plugin",
+  "license": "MIT"
+}
