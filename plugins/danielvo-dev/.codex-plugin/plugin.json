@@ -1,0 +1,35 @@
+{
+  "name": "danielvo-dev",
+  "version": "0.1.0",
+  "description": "Personal Codex plugin for development workflows, repository maintenance, and plugin evolution.",
+  "author": {
+    "name": "T_Miyazawa"
+  },
+  "repository": "https://github.com/danielvo594520/danielvo-plugin",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "developer-tools",
+    "workflow",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Danielvo Dev",
+    "shortDescription": "Personal development workflows for Codex.",
+    "longDescription": "A repo-local Codex plugin for repeatable development workflows, plugin maintenance, review preparation, and regular repository upkeep.",
+    "developerName": "T_Miyazawa",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Development",
+      "Review",
+      "Documentation"
+    ],
+    "defaultPrompt": [
+      "Use dev-workflow for this implementation task.",
+      "Use plugin-maintainer to update this plugin repo.",
+      "Review this repo and suggest the next skill to add."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

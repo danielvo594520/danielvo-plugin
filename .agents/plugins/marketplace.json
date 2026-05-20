@@ -1,0 +1,20 @@
+{
+  "name": "danielvo-suite",
+  "interface": {
+    "displayName": "Danielvo Plugin Suite"
+  },
+  "plugins": [
+    {
+      "name": "danielvo-dev",
+      "source": {
+        "source": "local",
+        "path": "./plugins/danielvo-dev"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
