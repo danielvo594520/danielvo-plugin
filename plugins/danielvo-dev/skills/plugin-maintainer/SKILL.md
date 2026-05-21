@@ -1,42 +1,42 @@
 ---
 name: "plugin-maintainer"
-description: "Use when adding, updating, auditing, or reorganizing skills and metadata in this plugin repository."
+description: "danielvo-plugin リポジトリ自体のメンテナンス(スキルの追加・更新・整理、メタデータの整合性確認、検証スクリプト実行)を行うときに使用。"
 ---
 
 # Plugin Maintainer
 
-Use this skill when maintaining `danielvo-plugin` itself.
+`danielvo-plugin` 自身のメンテナンスに使うスキル。
 
-## Do Not Use For
+## 使わない場面
 
-- Normal application development outside this plugin repository
-- One-off answers that do not change plugin behavior or documentation
-- Installing third-party plugins without modifying this repository
+- このプラグインリポジトリ外での通常のアプリ開発
+- プラグインの振る舞いやドキュメントを変えない単発の質問対応
+- このリポジトリを変更しないサードパーティプラグインのインストール
 
-## Workflow
+## ワークフロー
 
-1. Check the current surface.
-   - Read `.agents/plugins/marketplace.json`.
-   - Read each changed plugin's `.codex-plugin/plugin.json`.
-   - List existing `skills/*/SKILL.md` files before adding a new skill.
+1. 現状を確認する
+   - `.agents/plugins/marketplace.json` と `.claude-plugin/marketplace.json` を読む
+   - 変更対象プラグインの `.codex-plugin/plugin.json` と `.claude-plugin/plugin.json` を読む
+   - 新規スキルを追加する前に既存の `skills/*/SKILL.md` を一覧する
 
-2. Decide whether to add, update, split, or remove.
-   - Add a skill only when a repeated workflow has a clear trigger.
-   - Update an existing skill when the new behavior belongs to the same trigger.
-   - Split a skill when one file owns unrelated workflows.
-   - Avoid broad skills that would trigger for nearly every task.
+2. 追加・更新・分割・削除の判断
+   - 明確なトリガーを持つ反復ワークフローのときだけスキルを追加する
+   - 同じトリガーに属する新挙動なら既存スキルを更新する
+   - 1ファイルに無関係なワークフローが混ざったら分割する
+   - 大半のタスクで発火してしまう広すぎるスキルは避ける
 
-3. Keep metadata aligned.
-   - Update `plugin.json` when the plugin purpose or starter prompts change.
-   - Update README skill tables when skills are added, renamed, or removed.
-   - Keep names kebab-case and stable.
+3. メタデータの整合
+   - プラグインの目的や `defaultPrompt` が変わったら `plugin.json` を更新する
+   - スキルの追加・改名・削除があれば README のスキル表を更新する
+   - 名前は kebab-case で安定させる
 
-4. Validate.
-   - Run `python3 scripts/validate_plugin_repo.py`.
-   - Fix JSON, missing manifest, and missing `SKILL.md` errors before finishing.
+4. 検証
+   - `python3 scripts/validate_plugin_repo.py` を実行する
+   - JSON エラー、マニフェスト欠落、`SKILL.md` 欠落を修正してから終える
 
-## Output Expectations
+## 出力の方針
 
-- State what skill or metadata changed.
-- Include validation results.
-- Suggest one focused next maintenance step only when it is clearly useful.
+- 何のスキル / メタデータを変更したかを明示する
+- 検証結果を含める
+- 次の保守ステップは、明確に有用な場合のみ1つだけ提案する

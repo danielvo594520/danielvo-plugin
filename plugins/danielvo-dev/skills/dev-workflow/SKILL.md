@@ -1,48 +1,48 @@
 ---
 name: "dev-workflow"
-description: "Use when starting a development task and the user wants a repeatable flow for reading context, planning changes, implementing, verifying, and reporting results."
+description: "開発タスク(バグ修正、機能追加、リファクタリング、テスト更新など)を始めるときに使用。コードを読む→計画→実装→検証→報告までの再現性のある流れを提供する。"
 ---
 
 # Dev Workflow
 
-Use this skill for ordinary development work: bug fixes, feature additions, refactors with clear scope, test updates, and documentation changes tied to code.
+通常の開発作業で使うスキル。バグ修正、機能追加、スコープが明確なリファクタリング、テスト更新、コードに紐づくドキュメント更新などを対象とする。
 
-## Do Not Use For
+## 使わない場面
 
-- Pure research with no expected repository change
-- Broad product brainstorming before requirements are clear
-- Publishing or release work that needs a dedicated release checklist
-- Code review requests where the expected output is findings, not implementation
+- リポジトリの変更を伴わない純粋な調査
+- 要件が固まる前の広範なプロダクトのブレスト
+- 専用のチェックリストが必要なリリース作業
+- 実装ではなく指摘を出力するコードレビュー依頼
 
-## Workflow
+## ワークフロー
 
-1. Establish scope.
-   - Read the user request and current repository instructions.
-   - Inspect the relevant files before proposing changes.
-   - Identify existing patterns and tests.
+1. スコープを確定する
+   - ユーザーの依頼内容と現在のリポジトリの指示を読む
+   - 変更を提案する前に関連ファイルを確認する
+   - 既存のパターンとテストを把握する
 
-2. Make a small plan.
-   - State the intended files or modules to touch.
-   - Keep unrelated refactors out of scope.
-   - Prefer the repository's existing style.
+2. 小さく計画する
+   - 触る予定のファイルやモジュールを明示する
+   - 無関係なリファクタリングはスコープ外にする
+   - リポジトリの既存スタイルを尊重する
 
-3. Implement.
-   - Change only what is needed for the requested behavior.
-   - Add or update tests when behavior changes.
-   - Update docs only when they help future use.
+3. 実装する
+   - 依頼された振る舞いに必要な変更だけ行う
+   - 振る舞いが変わるならテストを追加・更新する
+   - ドキュメントは将来の利用に役立つときだけ更新する
 
-4. Verify.
-   - Run the narrowest useful test first.
-   - Run broader checks when the change touches shared behavior.
-   - If a check cannot run, explain why.
+4. 検証する
+   - 最も狭く有効なテストから走らせる
+   - 共有部分に触れるなら広めのチェックも実行する
+   - 実行できないチェックがあれば理由を説明する
 
-5. Report.
-   - Summarize what changed.
-   - Include verification results.
-   - Call out remaining risks or follow-up work.
+5. 報告する
+   - 何を変更したか要約する
+   - 検証結果を含める
+   - 残るリスクやフォローアップ作業に言及する
 
-## Output Expectations
+## 出力の方針
 
-- Keep the final report concise.
-- Mention changed files when useful.
-- Do not claim success without verification evidence.
+- 最終報告は簡潔にする
+- 変更ファイルは必要なときだけ明示する
+- 検証の根拠なしに成功を主張しない

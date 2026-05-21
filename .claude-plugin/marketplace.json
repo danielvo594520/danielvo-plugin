@@ -1,0 +1,18 @@
+{
+  "name": "danielvo-suite",
+  "owner": {
+    "name": "T_Miyazawa"
+  },
+  "metadata": {
+    "displayName": "Danielvo Plugin Suite",
+    "description": "danielvo 用の Claude Code プラグインを束ねた個人マーケットプレイス。"
+  },
+  "plugins": [
+    {
+      "name": "danielvo-dev",
+      "source": "./plugins/danielvo-dev",
+      "description": "開発フロー、リポジトリ保守、プラグイン整備のための個人用 Claude Code プラグイン。",
+      "category": "Developer Tools"
+    }
+  ]
+}

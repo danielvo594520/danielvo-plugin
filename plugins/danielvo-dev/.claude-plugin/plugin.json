@@ -1,0 +1,17 @@
+{
+  "name": "danielvo-dev",
+  "version": "0.1.0",
+  "description": "開発フロー、リポジトリ保守、プラグイン整備のための個人用 Claude Code プラグイン。",
+  "author": {
+    "name": "T_Miyazawa"
+  },
+  "homepage": "https://github.com/danielvo594520/danielvo-plugin",
+  "repository": "https://github.com/danielvo594520/danielvo-plugin",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "developer-tools",
+    "workflow",
+    "skills"
+  ]
+}

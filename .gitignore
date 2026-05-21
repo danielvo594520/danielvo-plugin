@@ -1,0 +1,9 @@
+# Serena MCP local state
+.serena/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
